@@ -1,0 +1,7 @@
+export const SET_CARTOONS = "SET_CARTOONS";
+
+export const SET_USER_CARTOONS = "SET_USER_CARTOONS";
+
+export const ADD_NEW_CARTOON = "ADD_NEW_CARTOON"; 
+
+export const DELETE_CARTOON = "DELETE_CARTOON"; 

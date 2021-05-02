@@ -1,0 +1,101 @@
+.cardContainer {
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    width:95%;
+    /* height:95%; */
+    /* padding : 2%; */
+    margin : 2%;
+    background-color:#59595c;
+    border-radius: 4%;
+}
+
+.cardImage {
+    width:100%;
+    height:100%;
+}
+
+.flexRow{
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 2%;
+}
+
+.cardBody{
+    width:100%;
+    padding:2%;
+
+}
+
+.nameStyle{
+    font-family: 'Roboto Slab', serif;
+    font-weight:bolder;
+    font-size: 25px;
+    color: white
+}
+
+.cardTextTitle{
+    font-size: 15px;
+    color: #1b1b1c
+}
+
+.cardTextValue{
+    font-weight:bold;
+    font-size: 15px;
+    color: white
+}
+
+.statusText{
+    font-weight:bold;
+    font-size: 15px;
+    color: white
+}
+
+.flexColumn{
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+}
+
+.navbarHeaderContainer{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    width:100%
+}
+
+.labelText{
+    font-weight:bold;
+    font-size: 18px;
+    color: black
+}
+
+.buttonText{
+    font-weight:bold;
+    font-size: 15px;
+    color: black
+}
+
+.signupContainer{
+  border-color: #1b1b1c;
+  border-style: solid;
+  border-width: 1px;
+  /* background-color: red; */
+  width : 100%;
+  padding:5%
+}
+
+
+.errorText{
+    font-weight:bold;
+    font-size: 15px;
+    color: red;
+}
+
+.flexColumnSB{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
