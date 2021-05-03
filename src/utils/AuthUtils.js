@@ -5,8 +5,16 @@
 
 const base64 = require('base64url');
 
+
+const dotenv = require("dotenv");
+dotenv.config();
+
 function setTokens(token){
     sessionStorage.setItem("token",token)
+}
+
+function getToken(){
+    return sessionStorage.getItem('token')
 }
 
 function retrievePayloadFromToken(){
@@ -20,7 +28,7 @@ function retrievePayloadFromToken(){
 }
 
 function isValidToken(payloadFromToken){
-    if(payloadFromToken.secret === "RICKANDMORTY#</3"){
+    if(payloadFromToken.secret === process.env.REACT_APP_API_SECRET){
         return true;
     }else{
         return false;
@@ -47,4 +55,5 @@ module.exports = {
     setTokens,
     getLoggedInUserId,
     isTokenPresent,
+    getToken,
 }

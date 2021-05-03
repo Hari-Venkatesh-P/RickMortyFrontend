@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router";
 import { RESET_CARTOONS } from "../redux/actions/CartoonActions";
@@ -30,7 +30,6 @@ function Navbar(props) {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      {/* , position:'fixed' */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a style={{ cursor: "pointer" }}

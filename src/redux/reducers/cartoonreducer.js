@@ -26,7 +26,7 @@ export const cartoonReducer = (state = initialState, action) => {
       return {
         ...state,
         userCartoons: state.userCartoons.filter(
-          (cartoon) => cartoon.cartoonId != action.payload.id
+          (cartoon) => cartoon.cartoonId !== action.payload.id
         ),
       };
     }

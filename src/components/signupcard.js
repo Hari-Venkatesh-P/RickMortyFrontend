@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
-import { useHistory } from "react-router";
 import ReactTooltip from "react-tooltip";
 import { makeAPICall } from "../utils/AxiosUtils";
 
@@ -9,7 +8,6 @@ import "./styles.css";
 
 function Signup(props) {
 
-  const history = useHistory();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

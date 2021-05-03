@@ -8,7 +8,6 @@ import Dashboard from "../src/screens/dashboard";
 import Login from "../src/screens/loginscreen";
 import { ProtectedRoute } from "./utils/ProtectedRoute";
 
-
 function App() {
   return (
     <div className="App">

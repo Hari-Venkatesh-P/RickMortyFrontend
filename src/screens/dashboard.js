@@ -7,7 +7,6 @@ import NavBar from "../components/navbar";
 import { makeAPICall } from "../utils/AxiosUtils";
 import { SET_CARTOONS } from "../redux/actions/CartoonActions";
 import "./styles.css";
-import { css } from "@emotion/core";
 import ScaleLoader from "react-spinners/ScaleLoader";
 
 const Dashboard = () => {
@@ -40,9 +39,9 @@ const Dashboard = () => {
   };
 
   const handlePagination = (str) => {
-    if (str == "back" && pageNo!==1) {
+    if (str === "back" && pageNo!==1) {
       setPageNo(pageNo - 1);
-    } else if (str == "next" && pageNo!== 34) {
+    } else if (str === "next" && pageNo!== 34) {
       setPageNo(pageNo + 1);
     }
   };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
@@ -7,7 +7,7 @@ import "./styles.css";
 import { LOGIN_USER } from "../redux/actions/UserActions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { isTokenPresent, setTokens } from "../utils/AuthUtils";
+import { setTokens } from "../utils/AuthUtils";
 
 function SignInCard(props) {
   const dispatch = useDispatch();

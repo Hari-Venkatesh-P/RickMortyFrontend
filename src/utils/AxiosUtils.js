@@ -1,9 +1,19 @@
-import axios from 'axios';
+import axios from "axios";
+import authUtils from "./AuthUtils";
 
-export const makeAPICall = async (method, URL, data, headers) => {
+const dotenv = require("dotenv");
+dotenv.config();
+
+export const makeAPICall = async (method, URL, data) => {
+  let headers = {};
+  if (authUtils.getToken() !== "") {
+    headers = {
+      authorization: authUtils.getToken(),
+    };
+  }
   const config = {
     method: method,
-    url: "http://localhost:4000" + URL,
+    url: process.env.REACT_APP_API_URL + URL,
     data: {
       ...data,
     },

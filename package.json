@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "base64url": "^3.0.1",
     "bootstrap": "^4.6.0",
+    "dotenv": "^8.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-notifications": "^1.7.2",
