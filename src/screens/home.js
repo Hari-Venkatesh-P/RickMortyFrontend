@@ -115,29 +115,27 @@ const Home = () => {
             </div>
           </div>
           <div className="flexRowCenter">
-            {userCartoons.length === 0 && (
+            {userCartoons.length === 0 ? (
               <span className="noCartoonLabels">No Cartoons</span>
-            )}
-          </div>
-          {!userCartoons.length === 0 && (
-            <div className="paginationContainer">
-              <button
-                type="button"
-                className="btn btn-secondary btn-sm buttonText"
+            ) :  <div className="paginationContainer">
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm buttonText"
+            >
+              <i className="fa fa-arrow-up fa-sm buttonText" color="black">
+                &nbsp;
+              </i>
+              <a
+                className="buttonText"
+                href="#top"
+                style={{ color: "black" }}
               >
-                <i className="fa fa-arrow-up fa-sm buttonText" color="black">
-                  &nbsp;
-                </i>
-                <a
-                  className="buttonText"
-                  href="#top"
-                  style={{ color: "black" }}
-                >
-                  Go to top
-                </a>
-              </button>
-            </div>
-          )}
+                Go to top
+              </a>
+            </button>
+          </div>
+          }
+          </div>
         </React.Fragment>
       )}
     </div>

@@ -84,7 +84,6 @@ function Signup(props) {
       details = response.profileObj;
       setName(details.name);
       setEmail(details.email);
-      console.log("googled");
     } else {
       NotificationManager.warning(
         "Unable to sign up with Google",
@@ -224,10 +223,10 @@ function Signup(props) {
 
         <span>
           <GoogleLogin
-            clientId= {process.env.REACT_APP_GOOGLE_CLIENT_SECRET}//"393599926777-5q541vhi9mchrcgbmh8otbn65n5sfb99.apps.googleusercontent.com"
+            clientId= {process.env.REACT_APP_GOOGLE_CLIENT_SECRET}
             buttonText="Sign up with Google"
-            onSuccess={onSuccessResponseGoogle}
-            onFailure={onFailureResponseGoogle}
+            onSuccess={(e)=>{onSuccessResponseGoogle(e)}}
+            onFailure={(e)=>{onFailureResponseGoogle(e)}}
             cookiePolicy={"single_host_origin"}
           />
         </span>

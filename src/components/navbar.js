@@ -25,7 +25,6 @@ function Navbar(props) {
     sessionStorage.removeItem("token");
     dispatch({ type: RESET_CARTOONS, payload: {} });
     dispatch({ type: LOGOUT_USER, payload: {} });
-    console.log(storeData);
     history.push("/");
   };
 
