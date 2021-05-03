@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router";
-import "./styles.css";
-
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
+
+
 import { makeAPICall } from "../utils/AxiosUtils";
-import { ADD_NEW_CARTOON, DELETE_CARTOON } from "../redux/actions/CartoonActions";
 import { isTokenPresent } from "../utils/AuthUtils";
+import { ADD_NEW_CARTOON, DELETE_CARTOON } from "../redux/actions/CartoonActions";
+import "./styles.css";
+
 function Cartooncard(props) {
 
   const location = useLocation();

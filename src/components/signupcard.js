@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import ReactTooltip from "react-tooltip";
-import { makeAPICall } from "../utils/AxiosUtils";
+import { GoogleLogin } from "react-google-login";
 
+import { makeAPICall } from "../utils/AxiosUtils";
 import "./styles.css";
+const dotenv = require("dotenv");
+dotenv.config();
 
 function Signup(props) {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,32 +20,26 @@ function Signup(props) {
   useEffect(() => {});
 
   const signUpAPI = async () => {
-    const response = await makeAPICall(
-      "POST",
-      "/users/create",
-      {
-        name,
-        email,
-        password
-      }
-    );
+    const response = await makeAPICall("POST", "/users/create", {
+      name,
+      email,
+      password,
+    });
     if (response.status === 200) {
-      if(response.data.success){
+      if (response.data.success) {
         NotificationManager.success("Account created", "Success", 1000);
         // props.toggle()
-      }else {
-        setError(response.data.message)
+      } else {
+        setError(response.data.message);
         NotificationManager.warning(response.data.message, "Warning", 1000);
       }
-    }else {
+    } else {
       NotificationManager.error("Unable to create account", "Warning", 1000);
     }
-  }
-
-
+  };
 
   const validate = () => {
-    let err="";
+    let err = "";
     let emailPattern = new RegExp(
       "^[a-z0-9._%+-]+@[a-z0-9.-]+[.]{1}[a-z]{2,3}"
     );
@@ -61,7 +57,7 @@ function Signup(props) {
     } else if (!emailPattern.test(email)) {
       NotificationManager.warning("Invalid Mail format", "Warning", 1000);
       err = "Invalid Mail format";
-    }  else if (!passwordPattern.test(password)) {
+    } else if (!passwordPattern.test(password)) {
       NotificationManager.warning("Invalid Password format", "Warning", 1000);
       err = "Invalid Password Format";
     } else if (password !== passwordConfirm) {
@@ -69,18 +65,42 @@ function Signup(props) {
       NotificationManager.warning("Passwords does'nt match", "Warning", 1000);
     }
     setError(err);
-    if(err===""){
+    if (err === "") {
       return true;
-    }else {
+    } else {
       return false;
     }
   };
 
-  const handleSignUp =  () => {
-    if(validate()){
-      signUpAPI()
+  const handleSignUp = () => {
+    if (validate()) {
+      signUpAPI();
     }
-  }
+  };
+
+  const onSuccessResponseGoogle = (response) => {
+    let details;
+    if (response.profileObj) {
+      details = response.profileObj;
+      setName(details.name);
+      setEmail(details.email);
+      console.log("googled");
+    } else {
+      NotificationManager.warning(
+        "Unable to sign up with Google",
+        "Warning",
+        1000
+      );
+    }
+  };
+
+  const onFailureResponseGoogle = (response) => {
+    NotificationManager.warning(
+      "Unable to sign up with Google",
+      "Warning",
+      1000
+    );
+  };
 
   return (
     <div className="signupContainer">
@@ -93,6 +113,7 @@ function Signup(props) {
         </label>
         <div className="col-sm-8">
           <input
+            value={name}
             type="text"
             className="form-control"
             onChange={(e) => {
@@ -111,6 +132,7 @@ function Signup(props) {
         </label>
         <div className="col-sm-8">
           <input
+            value={email}
             type="text"
             className="form-control"
             id="email"
@@ -188,8 +210,9 @@ function Signup(props) {
         </div>
       </div>
       {error !== "" && <span className="flexRow errorText">{error}</span>}
-      <div className="flexRow">
+      <div className="signupButtonContainer">
         <button
+          style={{ width: "100%", marginBottom: "5%" }}
           type="button"
           className="btn btn-secondary "
           onClick={() => {
@@ -198,6 +221,16 @@ function Signup(props) {
         >
           Create an account
         </button>
+
+        <span>
+          <GoogleLogin
+            clientId= {process.env.REACT_APP_GOOGLE_CLIENT_SECRET}//"393599926777-5q541vhi9mchrcgbmh8otbn65n5sfb99.apps.googleusercontent.com"
+            buttonText="Sign up with Google"
+            onSuccess={onSuccessResponseGoogle}
+            onFailure={onFailureResponseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
+        </span>
       </div>
     </div>
   );

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
+import ScaleLoader from "react-spinners/ScaleLoader";
+
 import Cartooncard from "../components/cartooncard";
 import NavBar from "../components/navbar";
 import { makeAPICall } from "../utils/AxiosUtils";
 import { SET_CARTOONS } from "../redux/actions/CartoonActions";
 import "./styles.css";
-import ScaleLoader from "react-spinners/ScaleLoader";
 
 const Dashboard = () => {
   const dispatch = useDispatch();

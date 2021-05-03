@@ -21,7 +21,7 @@ const Home = () => {
       "GET",
       "/cartoons/user/" + userDetails._id
     );
-    setLoading(false)
+    setLoading(false);
     if (response.status === 200 && response.data.success) {
       let cartoons = response.data.message.reverse();
       dispatch({ type: SET_USER_CARTOONS, payload: cartoons });
@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <div>
-      <div  id="top">
+      <div id="top">
         <NavBar></NavBar>
       </div>
       <div className="container profileContainer">
@@ -119,19 +119,25 @@ const Home = () => {
               <span className="noCartoonLabels">No Cartoons</span>
             )}
           </div>
-          <div className="paginationContainer">
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm buttonText"
-            >
-              <i className="fa fa-arrow-up fa-sm buttonText" color="black">
-                &nbsp;
-              </i>
-              <a className="buttonText" href="#top" style={{ color: "black" }}>
-                Go to top
-              </a>
-            </button>
-          </div>
+          {!userCartoons.length === 0 && (
+            <div className="paginationContainer">
+              <button
+                type="button"
+                className="btn btn-secondary btn-sm buttonText"
+              >
+                <i className="fa fa-arrow-up fa-sm buttonText" color="black">
+                  &nbsp;
+                </i>
+                <a
+                  className="buttonText"
+                  href="#top"
+                  style={{ color: "black" }}
+                >
+                  Go to top
+                </a>
+              </button>
+            </div>
+          )}
         </React.Fragment>
       )}
     </div>
