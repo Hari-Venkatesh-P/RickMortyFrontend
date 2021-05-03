@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 import { makeAPICall } from "../utils/AxiosUtils";
-import "react-notifications/lib/notifications.css";
 import "./styles.css";
 import { LOGIN_USER } from "../redux/actions/UserActions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import { isTokenPresent, setTokens } from "../utils/AuthUtils";
 
 function SignInCard(props) {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function SignInCard(props) {
   const signInAPI = async () => {
     const response = await makeAPICall(
       "POST",
-      "http://localhost:4000/users/login",
+      "/users/login",
       {
         email,
         password,
@@ -29,6 +30,7 @@ function SignInCard(props) {
 
     if (response.status === 200) {
       if (response.data.success) {
+        setTokens(response.data.token)
         dispatch({ type: LOGIN_USER, payload: response.data.message });
         history.push("/dashboard");
       } else {

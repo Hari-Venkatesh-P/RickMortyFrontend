@@ -1,21 +1,60 @@
-.dashboard-card-container{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding:5%;
+.dashboard-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: "relative";
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
-.loginContainer{
-    margin-top:10%;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
+.loginContainer {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.buttonText{
-    font-weight:500;
-    font-size: 15px;
-    color: black;
-    cursor: pointer;
+.buttonText {
+  font-weight: 500;
+  font-size: 15px;
+  color: black;
+  cursor: pointer;
+}
+
+.paginationContainer {
+  cursor: "pointer";
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-bottom: 5%;
+}
+
+
+.flexRowCenter{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  /* padding: 2%; */
+}
+
+.noCartoonLabels {
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+}
+
+.profileContainer{
+  cursor: "pointer";
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* align-items: center;
+  align-content: center; */
+  padding-top: 5%;
+
 }

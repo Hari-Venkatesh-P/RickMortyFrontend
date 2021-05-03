@@ -3,7 +3,7 @@ import axios from 'axios';
 export const makeAPICall = async (method, URL, data, headers) => {
   const config = {
     method: method,
-    url: URL,
+    url: "http://localhost:4000" + URL,
     data: {
       ...data,
     },

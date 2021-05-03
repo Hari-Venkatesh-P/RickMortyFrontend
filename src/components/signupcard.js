@@ -22,7 +22,7 @@ function Signup(props) {
   const signUpAPI = async () => {
     const response = await makeAPICall(
       "POST",
-      "http://localhost:4000/users/create",
+      "/users/create",
       {
         name,
         email,

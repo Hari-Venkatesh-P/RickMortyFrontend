@@ -6,6 +6,7 @@ import Store from "../src/redux/index"
 import Home from "../src/screens/home";
 import Dashboard from "../src/screens/dashboard";
 import Login from "../src/screens/loginscreen";
+import { ProtectedRoute } from "./utils/ProtectedRoute";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Login} />
               <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/home" component={Home} />
+              <ProtectedRoute exact path="/home" component={Home} />
             </Switch>
           </BrowserRouter>
         </Provider>

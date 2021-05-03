@@ -8,7 +8,7 @@ import AppBar from "../components/AppBar";
 function Login(props) {
   const [isSignup, setSignUp] = useState(true);
   useEffect(() => {
-    console.log(props.cartoon);
+    // console.log(props.cartoon);
   });
 
   return (

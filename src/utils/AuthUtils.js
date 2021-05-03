@@ -19,18 +19,17 @@ function retrievePayloadFromToken(){
     }
 }
 
-function isMemberLoggedIn(){
-    const payloadFromToken = retrievePayloadFromToken()
-    if(payloadFromToken && payloadFromToken.role==="MEMBER"){
-        return true
+function isValidToken(payloadFromToken){
+    if(payloadFromToken.secret === "RICKANDMORTY#</3"){
+        return true;
     }else{
-        return false
+        return false;
     }
 }
 
-function isAdminLoggedIn(){
+function isTokenPresent(){
     const payloadFromToken = retrievePayloadFromToken()
-    if(payloadFromToken && payloadFromToken.role==="ADMIN"){
+    if(payloadFromToken && isValidToken(payloadFromToken)){
         return true
     }else{
         return false
@@ -39,14 +38,13 @@ function isAdminLoggedIn(){
 
 function getLoggedInUserId(){
     const payloadFromToken = retrievePayloadFromToken()
-    if(payloadFromToken.id && payloadFromToken.role==="MEMBER"){
+    if(payloadFromToken._id){
         return payloadFromToken.id
     }
 }
 
 module.exports = {
-    isMemberLoggedIn,
     setTokens,
-    isAdminLoggedIn,
-    getLoggedInUserId
+    getLoggedInUserId,
+    isTokenPresent,
 }
